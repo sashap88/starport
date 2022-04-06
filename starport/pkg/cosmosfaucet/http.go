@@ -14,7 +14,7 @@ import (
 func (f Faucet) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	router := mux.NewRouter()
 
-	router.Handle("/", cors.Default().Handler(http.HandlerFunc(f.faucetHandler))).
+	router.Handle("/apifaucet", cors.Default().Handler(http.HandlerFunc(f.faucetHandler))).
 		Methods(http.MethodPost)
 
 	router.Handle("/info", cors.Default().Handler(http.HandlerFunc(f.faucetInfoHandler))).
